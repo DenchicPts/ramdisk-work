@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount and restore RAM disk
+After=default.target
+
+[Service]
+ExecStart=sudo /usr/local/bin/ramdisk-init.sh
+Type=oneshot
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target
