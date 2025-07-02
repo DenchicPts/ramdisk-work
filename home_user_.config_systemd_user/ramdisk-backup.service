@@ -1,13 +1,11 @@
 [Unit]
-Description=Backup RAM disk before shutdown
+Description=Backup RAM disk before unmount
 DefaultDependencies=no
-Before=shutdown.target reboot.target halt.target poweroff.target
-Conflicts=shutdown.target reboot.target halt.target poweroff.target
+Before=umount.target
 
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/ramdisk-backup.sh
-RemainAfterExit=true
 
 [Install]
-WantedBy=halt.target reboot.target shutdown.target poweroff.target
+WantedBy=umount.target
